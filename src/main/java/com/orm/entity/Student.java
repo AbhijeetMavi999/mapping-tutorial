@@ -1,10 +1,11 @@
 package com.orm.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -19,9 +20,11 @@ public class Student {
     private String studentName;
     private String about;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Address> addresses = new ArrayList<>();
+    private Set<Address> addresses = new LinkedHashSet<>();
 
+    @JsonManagedReference
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private Laptop laptop;
 }

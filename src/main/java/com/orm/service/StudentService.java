@@ -13,4 +13,6 @@ public interface StudentService {
     Student getStudentById(Integer studentId);
 
     void deleteStudent(Integer studentId);
+
+    List<Student> findStudentByNameAndCity(String studentName, String city);
 }

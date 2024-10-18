@@ -1,5 +1,6 @@
 package com.orm.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +21,6 @@ public class Laptop {
 
     @OneToOne
     @JoinColumn(name = "student_id")
+    @JsonBackReference
     private Student student;
 }
