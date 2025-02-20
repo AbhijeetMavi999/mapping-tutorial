@@ -10,6 +10,6 @@ public class SayHello {
 
     @GetMapping("/{name}")
     public String sayHello(String name) {
-        return name+" Hello!";
+        return name+" Hello! from SpringBoot";
     }
 }
